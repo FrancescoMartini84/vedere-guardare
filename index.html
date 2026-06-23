@@ -24,10 +24,11 @@ h1 {
 }
 
 h2 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #475569;
-    margin-top: 30px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 40px 0 20px;
 }
 
 .video-banner {
@@ -66,19 +67,31 @@ video {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     background-color: #000;
 }
-
 button {
+    font-size: 18px;
+    font-weight: 600;
     padding: 12px 20px;
-    margin: 8px;
+    margin: 10px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
-    background: #3b82f6;
-    color: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    transition: all 0.2s ease;
+    color: #fff;
+    background: linear-gradient(270deg, #3b82f6, #9333ea, #f59e0b);
+    background-size: 600% 600%;
+    animation: gradientShift 6s ease infinite, floaty 3s ease-in-out infinite;
+}
+
+/* Gradient animation */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Floating movement */
+@keyframes floaty {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
 }
 
 button:hover {
@@ -114,6 +127,23 @@ button:hover {
     background: #059669;
 }
 
+.scroll-down {
+    text-align: center;
+    font-size: 64px;       /* Bigger arrow */
+    color: #1e40af;        /* Deep blue for contrast */
+    margin: 25px 0 45px;
+    font-weight: 900;      /* Maximum thickness */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Adds depth */
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(14px); }
+    60% { transform: translateY(7px); }
+}
+
+
 </style>
 </head>
 
@@ -132,7 +162,11 @@ button:hover {
     <source src="cut_output.mp4" type="video/mp4">
 </video>
 
-<h2>Choose Your Preferred Language</h2>
+<h2>Choose Your Preferred Language and Scroll Down to Unveil More</h2>
+
+<div class="scroll-down">
+  ↓
+</div>
 
 <button onclick="setLanguage('it')">🇮🇹 Italiano</button>
 <button onclick="setLanguage('es')">🇪🇸 Español</button>
